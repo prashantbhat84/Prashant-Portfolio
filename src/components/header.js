@@ -1,13 +1,23 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 //import "./header.scss"
 import classes from "./header.module.scss"
-const header = () => {
+
+const Header = props => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
   return (
     <div>
       <header className={classes.header}>
         <Link className={classes.title} to="/">
-          <h1>Prashant Bhat</h1>
+          <h1>{data.site.siteMetadata.title}</h1>
         </Link>
         <nav>
           <ul className={classes.navlist}>
@@ -54,4 +64,4 @@ const header = () => {
   )
 }
 
-export default header
+export default Header
