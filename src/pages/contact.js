@@ -1,9 +1,12 @@
 import React from "react"
+import Layout from "../components/layout"
 
 const contact = () => {
   return (
     <div>
-      <h2>Contact me on pb@gmail.com</h2>
+      <Layout>
+        <h2>Contact me on pb@gmail.com</h2>
+      </Layout>
     </div>
   )
 }
